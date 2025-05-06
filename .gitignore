@@ -1,0 +1,36 @@
+# ========== Android Studio / Gradle / IDE ==========
+.gradle/
+.idea/
+*.iml
+local.properties
+
+# ========== Build output ==========
+/build/
+app/build/
+
+# ========== Gradle wrapper ==========
+/gradle/
+gradlew
+gradlew.bat
+
+# ========== OS / IDE garbage ==========
+.DS_Store
+Thumbs.db
+
+# ========== Compiled files ==========
+*.apk
+*.ap_
+*.dex
+*.class
+*.jar
+*.so
+*.tmp
+*.log
+*.flat
+
+# ========== Intermediate / temp files ==========
+**/intermediates/
+**/generated/
+**/tmp/
+**/outputs/
+**/captures/
