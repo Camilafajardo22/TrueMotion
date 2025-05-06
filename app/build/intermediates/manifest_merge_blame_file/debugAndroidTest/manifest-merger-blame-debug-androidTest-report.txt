@@ -3,24 +3,24 @@
 3    package="com.google.mlkit.vision.demo.test" >
 4
 5    <uses-sdk
-5-->D:\Nueva carpeta (2)\PMC2\TrueMotion\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest2233798857983296245.xml:5:5-74
+5-->D:\Nueva carpeta (2)\PMC2\TrueMotion\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest12899752644689298021.xml:5:5-74
 6        android:minSdkVersion="21"
-6-->D:\Nueva carpeta (2)\PMC2\TrueMotion\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest2233798857983296245.xml:5:15-41
+6-->D:\Nueva carpeta (2)\PMC2\TrueMotion\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest12899752644689298021.xml:5:15-41
 7        android:targetSdkVersion="34" />
-7-->D:\Nueva carpeta (2)\PMC2\TrueMotion\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest2233798857983296245.xml:5:42-71
+7-->D:\Nueva carpeta (2)\PMC2\TrueMotion\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest12899752644689298021.xml:5:42-71
 8
 9    <instrumentation
-9-->D:\Nueva carpeta (2)\PMC2\TrueMotion\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest2233798857983296245.xml:11:5-15:78
+9-->D:\Nueva carpeta (2)\PMC2\TrueMotion\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest12899752644689298021.xml:11:5-15:78
 10        android:name="android.test.InstrumentationTestRunner"
-10-->D:\Nueva carpeta (2)\PMC2\TrueMotion\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest2233798857983296245.xml:11:22-75
+10-->D:\Nueva carpeta (2)\PMC2\TrueMotion\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest12899752644689298021.xml:11:22-75
 11        android:functionalTest="false"
-11-->D:\Nueva carpeta (2)\PMC2\TrueMotion\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest2233798857983296245.xml:14:22-52
+11-->D:\Nueva carpeta (2)\PMC2\TrueMotion\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest12899752644689298021.xml:14:22-52
 12        android:handleProfiling="false"
-12-->D:\Nueva carpeta (2)\PMC2\TrueMotion\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest2233798857983296245.xml:13:22-53
+12-->D:\Nueva carpeta (2)\PMC2\TrueMotion\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest12899752644689298021.xml:13:22-53
 13        android:label="Tests for com.google.mlkit.vision.demo"
-13-->D:\Nueva carpeta (2)\PMC2\TrueMotion\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest2233798857983296245.xml:15:22-76
+13-->D:\Nueva carpeta (2)\PMC2\TrueMotion\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest12899752644689298021.xml:15:22-76
 14        android:targetPackage="com.google.mlkit.vision.demo" />
-14-->D:\Nueva carpeta (2)\PMC2\TrueMotion\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest2233798857983296245.xml:12:22-74
+14-->D:\Nueva carpeta (2)\PMC2\TrueMotion\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest12899752644689298021.xml:12:22-74
 15
 16    <uses-permission android:name="android.permission.REORDER_TASKS" />
 16-->[androidx.test:core:1.4.0] C:\Users\jaime\.gradle\caches\8.10\transforms\436adbe4bbdeab6d4f4c4d972ccfc760\transformed\jetified-core-1.4.0\AndroidManifest.xml:24:5-72
@@ -40,10 +40,10 @@
 22    </queries>
 23
 24    <application android:debuggable="true" >
-24-->D:\Nueva carpeta (2)\PMC2\TrueMotion\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest2233798857983296245.xml:7:5-9:19
+24-->D:\Nueva carpeta (2)\PMC2\TrueMotion\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest12899752644689298021.xml:7:5-9:19
 25        <uses-library android:name="android.test.runner" />
-25-->D:\Nueva carpeta (2)\PMC2\TrueMotion\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest2233798857983296245.xml:8:9-60
-25-->D:\Nueva carpeta (2)\PMC2\TrueMotion\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest2233798857983296245.xml:8:23-57
+25-->D:\Nueva carpeta (2)\PMC2\TrueMotion\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest12899752644689298021.xml:8:9-60
+25-->D:\Nueva carpeta (2)\PMC2\TrueMotion\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest12899752644689298021.xml:8:23-57
 26
 27        <activity
 27-->[androidx.test:core:1.4.0] C:\Users\jaime\.gradle\caches\8.10\transforms\436adbe4bbdeab6d4f4c4d972ccfc760\transformed\jetified-core-1.4.0\AndroidManifest.xml:27:9-34:20

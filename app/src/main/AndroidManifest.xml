@@ -109,6 +109,10 @@
         <activity
             android:name=".preference.SettingsActivity"
             android:exported="false"/>
+        <activity
+            android:name=".StretchListActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme"/>
 
     </application>
     <queries>

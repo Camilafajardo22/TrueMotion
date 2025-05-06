@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.google.mlkit.vision.demo.app-mergeDebugResources-28:/values-en-rIN/values-en-rIN.xml",
+            "outputFile": "com.google.mlkit.vision.demo.app-mergeDebugResources-31:/values-en-rIN/values-en-rIN.xml",
             "map": [
                 {
                     "source": "C:\\Users\\jaime\\.gradle\\caches\\8.10\\transforms\\3c00d5252e5cb90caf50b6823745a727\\transformed\\core-1.9.0\\res\\values-en-rIN\\values-en-rIN.xml",

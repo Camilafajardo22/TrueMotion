@@ -125,6 +125,13 @@ attr buttonStyleSmall
 attr buttonTint
 attr buttonTintMode
 attr captureMode
+attr cardBackgroundColor
+attr cardCornerRadius
+attr cardElevation
+attr cardMaxElevation
+attr cardPreventCornerOverlap
+attr cardUseCompatPadding
+attr cardViewStyle
 attr chainUseRtl
 attr checkMarkCompat
 attr checkMarkTint
@@ -165,6 +172,11 @@ attr contentInsetLeft
 attr contentInsetRight
 attr contentInsetStart
 attr contentInsetStartWithNavigation
+attr contentPadding
+attr contentPaddingBottom
+attr contentPaddingLeft
+attr contentPaddingRight
+attr contentPaddingTop
 attr contrast
 attr controlBackground
 attr crossfade
@@ -216,6 +228,11 @@ attr editTextStyle
 attr elevation
 attr emojiCompatEnabled
 attr expandActivityOverflowButtonDrawable
+attr fastScrollEnabled
+attr fastScrollHorizontalThumbDrawable
+attr fastScrollHorizontalTrackDrawable
+attr fastScrollVerticalThumbDrawable
+attr fastScrollVerticalTrackDrawable
 attr firstBaselineToTopHeight
 attr flash
 attr flow_firstHorizontalBias
@@ -273,6 +290,7 @@ attr lastBaselineToBottomHeight
 attr layout
 attr layoutDescription
 attr layoutDuringTransition
+attr layoutManager
 attr layout_constrainedHeight
 attr layout_constrainedWidth
 attr layout_constraintBaseline_creator
@@ -413,10 +431,12 @@ attr radioButtonStyle
 attr ratingBarStyle
 attr ratingBarStyleIndicator
 attr ratingBarStyleSmall
+attr recyclerViewStyle
 attr region_heightLessThan
 attr region_heightMoreThan
 attr region_widthLessThan
 attr region_widthMoreThan
+attr reverseLayout
 attr round
 attr roundPercent
 attr saturation
@@ -436,11 +456,13 @@ attr showText
 attr showTitle
 attr singleChoiceItemLayout
 attr sizePercent
+attr spanCount
 attr spinBars
 attr spinnerDropDownItemStyle
 attr spinnerStyle
 attr splitTrack
 attr srcCompat
+attr stackFromEnd
 attr staggered
 attr state_above_anchor
 attr subMenuArrow
@@ -577,6 +599,10 @@ color bright_foreground_material_dark
 color bright_foreground_material_light
 color button_material_dark
 color button_material_light
+color cardview_dark_background
+color cardview_light_background
+color cardview_shadow_end_color
+color cardview_shadow_start_color
 color colorAccent
 color colorPrimary
 color colorPrimaryDark
@@ -725,6 +751,9 @@ dimen abc_text_size_title_material
 dimen abc_text_size_title_material_toolbar
 dimen activity_horizontal_margin
 dimen activity_vertical_margin
+dimen cardview_compat_inset_shadow
+dimen cardview_default_elevation
+dimen cardview_default_radius
 dimen compat_button_inset_horizontal_material
 dimen compat_button_inset_vertical_material
 dimen compat_button_padding_horizontal_material
@@ -734,6 +763,9 @@ dimen compat_notification_large_icon_max_height
 dimen compat_notification_large_icon_max_width
 dimen disabled_alpha_material_dark
 dimen disabled_alpha_material_light
+dimen fastscroll_default_thickness
+dimen fastscroll_margin
+dimen fastscroll_minimum_range
 dimen highlight_alpha_material_colored
 dimen highlight_alpha_material_dark
 dimen highlight_alpha_material_light
@@ -741,6 +773,9 @@ dimen hint_alpha_material_dark
 dimen hint_alpha_material_light
 dimen hint_pressed_alpha_material_dark
 dimen hint_pressed_alpha_material_light
+dimen item_touch_helper_max_drag_scroll_per_frame
+dimen item_touch_helper_swipe_escape_max_velocity
+dimen item_touch_helper_swipe_escape_velocity
 dimen notification_action_icon_size
 dimen notification_action_text_size
 dimen notification_big_circle_margin
@@ -878,6 +913,7 @@ drawable ic_switch_camera_white_48dp
 drawable ic_switch_camera_white_48dp_inset
 drawable list_item_background
 drawable logo_mlkit
+drawable logo_pmc
 drawable notification_action_background
 drawable notification_bg
 drawable notification_bg_low
@@ -978,8 +1014,10 @@ id beginning
 id blocking
 id bottom
 id bounce
+id btn_start
 id buttonPanel
 id cache_measures
+id card_container
 id center
 id center_vertical
 id chain
@@ -1054,7 +1092,9 @@ id image
 id imageView
 id info
 id invisible
+id is_pooling_container_tag
 id italic
+id item_touch_helper_previous_elevation
 id java_entry_point
 id jumpToEnd
 id jumpToStart
@@ -1067,6 +1107,7 @@ id line3
 id linear
 id listMode
 id list_item
+id logo_icon
 id message
 id middle
 id mixed
@@ -1087,6 +1128,7 @@ id parentRelative
 id path
 id pathRelative
 id percent
+id pooling_container_listener_holder_tag
 id position
 id postLayout
 id preview
@@ -1096,6 +1138,7 @@ id progress_horizontal
 id radio
 id ratio
 id rectangles
+id recycler_stretches
 id reverseSawtooth
 id right
 id right_icon
@@ -1145,6 +1188,7 @@ id startVertical
 id staticLayout
 id staticPostLayout
 id stop
+id stretch_name
 id submenuarrow
 id submit_area
 id tabMode
@@ -1170,7 +1214,9 @@ id textSpacerNoTitle
 id time
 id title
 id titleDividerNoCustom
+id title_home
 id title_template
+id title_text
 id toggle
 id top
 id topPanel
@@ -1234,13 +1280,16 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_chooser
+layout activity_home
 layout activity_settings
 layout activity_still_image
+layout activity_stretch_list
 layout activity_vision_camerax_live_preview
 layout activity_vision_cameraxsource_demo
 layout activity_vision_entry_choice
 layout activity_vision_live_preview
 layout custom_dialog
+layout item_stretch_card
 layout notification_action
 layout notification_action_tombstone
 layout notification_template_custom_big
@@ -1433,6 +1482,7 @@ style Base_AlertDialog_AppCompat_Light
 style Base_Animation_AppCompat_Dialog
 style Base_Animation_AppCompat_DropDownUp
 style Base_Animation_AppCompat_Tooltip
+style Base_CardView
 style Base_DialogWindowTitle_AppCompat
 style Base_DialogWindowTitleBackground_AppCompat
 style Base_TextAppearance_AppCompat
@@ -1584,6 +1634,9 @@ style Base_Widget_AppCompat_TextView
 style Base_Widget_AppCompat_TextView_SpinnerItem
 style Base_Widget_AppCompat_Toolbar
 style Base_Widget_AppCompat_Toolbar_Button_Navigation
+style CardView
+style CardView_Dark
+style CardView_Light
 style Platform_AppCompat
 style Platform_AppCompat_Light
 style Platform_ThemeOverlay_AppCompat
@@ -1792,6 +1845,7 @@ styleable AppCompatTheme android_windowIsFloating android_windowAnimationStyle a
 styleable ButtonBarLayout allowStacking
 styleable CameraView captureMode flash lensFacing pinchToZoomEnabled scaleType
 styleable Capability queryPatterns shortcutMatchRequired
+styleable CardView android_minWidth android_minHeight cardBackgroundColor cardCornerRadius cardElevation cardMaxElevation cardPreventCornerOverlap cardUseCompatPadding contentPadding contentPaddingBottom contentPaddingLeft contentPaddingRight contentPaddingTop
 styleable CheckedTextView android_checkMark checkMarkCompat checkMarkTint checkMarkTintMode
 styleable ColorStateListItem android_color android_alpha android_lStar alpha lStar
 styleable CompoundButton android_button buttonCompat buttonTint buttonTintMode
@@ -1837,6 +1891,7 @@ styleable PopupWindowBackgroundState state_above_anchor
 styleable PreviewView scaleType
 styleable PropertySet android_visibility android_alpha layout_constraintTag motionProgress visibilityMode
 styleable RecycleListView paddingBottomNoButtons paddingTopNoTitle
+styleable RecyclerView android_orientation android_clipToPadding android_descendantFocusability fastScrollEnabled fastScrollHorizontalThumbDrawable fastScrollHorizontalTrackDrawable fastScrollVerticalThumbDrawable fastScrollVerticalTrackDrawable layoutManager reverseLayout spanCount stackFromEnd
 styleable SearchView android_focusable android_maxWidth android_inputType android_imeOptions closeIcon commitIcon defaultQueryHint goIcon iconifiedByDefault layout queryBackground queryHint searchHintIcon searchIcon submitBackground suggestionRowLayout voiceIcon
 styleable SignInButton buttonSize colorScheme scopeUris
 styleable Spinner android_entries android_popupBackground android_prompt android_dropDownWidth popupTheme

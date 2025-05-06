@@ -122,6 +122,10 @@
         <activity
             android:name="com.google.mlkit.vision.demo.preference.SettingsActivity"
             android:exported="false" />
+        <activity
+            android:name="com.google.mlkit.vision.demo.StretchListActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme" />
 
         <!--
              Required for ML Kit Pose Detection GPU acceleration. Applications that target Android

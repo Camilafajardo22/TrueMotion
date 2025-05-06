@@ -18,11 +18,13 @@ package com.google.mlkit.vision.demo
 
 import android.Manifest
 import android.content.Context
+import android.graphics.Color
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
+import android.widget.Button
 import android.widget.TextView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -33,8 +35,16 @@ class EntryChoiceActivity : AppCompatActivity(), ActivityCompat.OnRequestPermiss
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_vision_entry_choice)
+    setContentView(R.layout.activity_home)
+    val cuadroList = listOf("Cuadro 1", "Cuadro 2", "Cuadro 3", "Cuadro 4", "Cuadro 5")
+    window.decorView.setBackgroundColor(Color.parseColor("#1B5979"))
+    val btnStart = findViewById<Button>(R.id.btn_start)
+    btnStart.setOnClickListener {
+      val intent = Intent(this, StretchListActivity::class.java)
+      startActivity(intent)
+    }
 
+      /*
     findViewById<TextView>(R.id.java_entry_point).setOnClickListener {
       val intent = Intent(this@EntryChoiceActivity, ChooserActivity::class.java)
       startActivity(intent)
@@ -47,7 +57,7 @@ class EntryChoiceActivity : AppCompatActivity(), ActivityCompat.OnRequestPermiss
           com.google.mlkit.vision.demo.kotlin.ChooserActivity::class.java
         )
       startActivity(intent)
-    }
+    }*/
 
     if (!allRuntimePermissionsGranted()) {
       getRuntimePermissions()
@@ -64,7 +74,27 @@ class EntryChoiceActivity : AppCompatActivity(), ActivityCompat.OnRequestPermiss
     }
     return true
   }
+  private fun showChoiceDialog() {
+    val builder = android.app.AlertDialog.Builder(this)
+    builder.setTitle("Elegir entrada")
 
+    val options = arrayOf("Java", "Kotlin")
+
+    builder.setItems(options) { _, which ->
+      when (which) {
+        0 -> { // Java
+          val intent = Intent(this, com.google.mlkit.vision.demo.java.ChooserActivity::class.java)
+          startActivity(intent)
+        }
+        1 -> { // Kotlin
+          val intent = Intent(this, com.google.mlkit.vision.demo.kotlin.ChooserActivity::class.java)
+          startActivity(intent)
+        }
+      }
+    }
+
+    builder.create().show()
+  }
   private fun getRuntimePermissions() {
     val permissionsToRequest = ArrayList<String>()
     for (permission in REQUIRED_RUNTIME_PERMISSIONS) {

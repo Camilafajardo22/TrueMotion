@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/card_container"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:layout_margin="8dp"
+    android:background="@android:color/white"
+    android:elevation="8dp"
+    android:radius="16dp">
+
+    <TextView
+        android:id="@+id/stretch_name"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:textColor="#1B5979"
+        android:textSize="20sp"
+        android:text="Nombre" />
+
+</androidx.cardview.widget.CardView>
