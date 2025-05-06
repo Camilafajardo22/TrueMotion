@@ -1,0 +1,30 @@
+# Android Studio / Gradle / Build System
+.gradle/
+.idea/
+build/
+local.properties
+*.iml
+
+# Build output
+/app/build/
+/build/
+
+# OS and IDE noise
+.DS_Store
+Thumbs.db
+
+# Logs and reports
+*.log
+*.tmp
+
+# Kotlin/Java build artifacts
+*.class
+*.jar
+*.apk
+*.dex
+*.flat
+
+# Intermediate folders
+**/intermediates/
+**/generated/
+**/tmp/
