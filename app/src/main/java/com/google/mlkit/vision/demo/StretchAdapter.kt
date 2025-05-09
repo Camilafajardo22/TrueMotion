@@ -32,7 +32,8 @@ class StretchAdapter(
             when (position) {
                 0 -> intent.putExtra("POSE_MODE", "RIGHT_ARM_STRETCH")
                 1 -> intent.putExtra("POSE_MODE", "LEFT_ARM_STRETCH")
-                2 -> intent.putExtra("POSE_MODE", "")
+                2 -> intent.putExtra("POSE_MODE", "RIGHT_LEG_STRETCH")
+                3 -> intent.putExtra("POSE_MODE", "LEFT_LEG_STRETCH")
                 // ... puedes agregar más modos si necesitas
                 else -> intent.putExtra("POSE_MODE", "UNKNOWN")
             }

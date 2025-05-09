@@ -75,7 +75,14 @@ internal constructor(
     } else if (poseMode == "LEFT_ARM_STRETCH"){
       drawLeftArm(canvas)
       return
+    } else if (poseMode == "RIGHT_LEG_STRETCH"){
+      drawRightLeg(canvas)
+      return
+    } else if (poseMode == "LEFT_LEG_STRETCH"){
+      drawLeftLeg(canvas)
+      return
     }
+
 
 
     // Draw all the points
@@ -168,16 +175,11 @@ internal constructor(
   private fun drawRightArm(canvas: Canvas) {
     val leftShoulder = pose.getPoseLandmark(PoseLandmark.LEFT_SHOULDER)
     val rightShoulder = pose.getPoseLandmark(PoseLandmark.RIGHT_SHOULDER)
-    val leftElbow = pose.getPoseLandmark(PoseLandmark.LEFT_ELBOW)
     val rightElbow = pose.getPoseLandmark(PoseLandmark.RIGHT_ELBOW)
-    val leftWrist = pose.getPoseLandmark(PoseLandmark.LEFT_WRIST)
     val rightWrist = pose.getPoseLandmark(PoseLandmark.RIGHT_WRIST)
 
-    val leftPinky = pose.getPoseLandmark(PoseLandmark.LEFT_PINKY)
     val rightPinky = pose.getPoseLandmark(PoseLandmark.RIGHT_PINKY)
-    val leftIndex = pose.getPoseLandmark(PoseLandmark.LEFT_INDEX)
     val rightIndex = pose.getPoseLandmark(PoseLandmark.RIGHT_INDEX)
-    val leftThumb = pose.getPoseLandmark(PoseLandmark.LEFT_THUMB)
     val rightThumb = pose.getPoseLandmark(PoseLandmark.RIGHT_THUMB)
 
     drawLine(canvas, leftShoulder, rightShoulder, whitePaint)
@@ -212,6 +214,44 @@ internal constructor(
     drawLine(canvas, leftWrist, leftIndex, leftPaint)
     drawLine(canvas, leftIndex, leftPinky, leftPaint)
 
+
+  }
+
+  private fun drawLeftLeg(canvas: Canvas){
+    val leftHip = pose.getPoseLandmark(PoseLandmark.LEFT_HIP)
+    val rightHip = pose.getPoseLandmark(PoseLandmark.RIGHT_HIP)
+    val leftKnee = pose.getPoseLandmark(PoseLandmark.LEFT_KNEE)
+    val rightKnee = pose.getPoseLandmark(PoseLandmark.RIGHT_KNEE)
+    val leftAnkle = pose.getPoseLandmark(PoseLandmark.LEFT_ANKLE)
+    val rightAnkle = pose.getPoseLandmark(PoseLandmark.RIGHT_ANKLE)
+    val leftHeel = pose.getPoseLandmark(PoseLandmark.LEFT_HEEL)
+    val rightHeel = pose.getPoseLandmark(PoseLandmark.RIGHT_HEEL)
+    val leftFootIndex = pose.getPoseLandmark(PoseLandmark.LEFT_FOOT_INDEX)
+    val rightFootIndex = pose.getPoseLandmark(PoseLandmark.RIGHT_FOOT_INDEX)
+
+    drawLine(canvas, leftHip, rightHip, whitePaint)
+
+    drawLine(canvas, leftHip, leftKnee, leftPaint)
+    drawLine(canvas, leftKnee, leftAnkle, leftPaint)
+    drawLine(canvas, leftAnkle, leftHeel, leftPaint)
+    drawLine(canvas, leftHeel, leftFootIndex, leftPaint)
+
+  }
+
+  private fun drawRightLeg(canvas: Canvas){
+    val leftHip = pose.getPoseLandmark(PoseLandmark.LEFT_HIP)
+    val rightHip = pose.getPoseLandmark(PoseLandmark.RIGHT_HIP)
+    val rightKnee = pose.getPoseLandmark(PoseLandmark.RIGHT_KNEE)
+    val rightAnkle = pose.getPoseLandmark(PoseLandmark.RIGHT_ANKLE)
+    val rightHeel = pose.getPoseLandmark(PoseLandmark.RIGHT_HEEL)
+    val rightFootIndex = pose.getPoseLandmark(PoseLandmark.RIGHT_FOOT_INDEX)
+
+    drawLine(canvas, leftHip, rightHip, whitePaint)
+
+    drawLine(canvas, rightHip, rightKnee, rightPaint)
+    drawLine(canvas, rightKnee, rightAnkle, rightPaint)
+    drawLine(canvas, rightAnkle, rightHeel, rightPaint)
+    drawLine(canvas, rightHeel, rightFootIndex, rightPaint)
 
   }
 

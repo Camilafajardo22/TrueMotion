@@ -42,6 +42,7 @@ import com.google.mlkit.vision.demo.kotlin.facemeshdetector.FaceMeshDetectorProc
 import com.google.mlkit.vision.demo.kotlin.labeldetector.LabelDetectorProcessor
 import com.google.mlkit.vision.demo.kotlin.objectdetector.ObjectDetectorProcessor
 import com.google.mlkit.vision.demo.kotlin.posedetector.ArmStretchEvaluator
+import com.google.mlkit.vision.demo.kotlin.posedetector.LegStretchEvaluator
 import com.google.mlkit.vision.demo.kotlin.posedetector.PoseDetectorProcessor
 import com.google.mlkit.vision.demo.kotlin.segmenter.SegmenterProcessor
 import com.google.mlkit.vision.demo.kotlin.textdetector.TextRecognitionProcessor
@@ -178,6 +179,24 @@ class LivePreviewActivity :
               val armsOk = ArmStretchEvaluator.isLeftArmStretched(pose)
               if (!armsOk) {
                 Toast.makeText(this, "Estira más los brazos", Toast.LENGTH_SHORT).show()
+              }
+            }
+          }
+
+          else if (poseMode == "RIGHT_LEG_STRETCH") {
+            processor.setPoseEvaluationCallback { pose ->
+              val legsOk = LegStretchEvaluator.isRightLegStretched(pose)
+              if (!legsOk) {
+                Toast.makeText(this, "Estira más las piernas", Toast.LENGTH_SHORT).show()
+              }
+            }
+          }
+
+          else if (poseMode == "LEFT_LEG_STRETCH") {
+            processor.setPoseEvaluationCallback { pose ->
+              val legsOk = LegStretchEvaluator.isLeftLegStretched(pose)
+              if (!legsOk) {
+                Toast.makeText(this, "Estira más las piernas", Toast.LENGTH_SHORT).show()
               }
             }
           }
