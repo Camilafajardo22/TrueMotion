@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import com.google.mlkit.vision.demo.kotlin.LivePreviewActivity
 
 class StretchAdapter(
     private val items: List<String>,
@@ -24,8 +25,18 @@ class StretchAdapter(
         val name = items[position]
         holder.title.text = name
 
-        holder.card.setOnClickListener {
-            val intent = Intent(context, com.google.mlkit.vision.demo.kotlin.ChooserActivity::class.java)
+        holder.itemView.setOnClickListener {
+            val intent = Intent(context, LivePreviewActivity::class.java)
+
+            // Dependiendo del ítem, mandamos un modo distinto
+            when (position) {
+                0 -> intent.putExtra("POSE_MODE", "RIGHT_ARM_STRETCH")
+                1 -> intent.putExtra("POSE_MODE", "LEFT_ARM_STRETCH")
+                2 -> intent.putExtra("POSE_MODE", "")
+                // ... puedes agregar más modos si necesitas
+                else -> intent.putExtra("POSE_MODE", "UNKNOWN")
+            }
+
             context.startActivity(intent)
         }
     }

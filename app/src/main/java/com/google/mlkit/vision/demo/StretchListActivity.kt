@@ -9,7 +9,7 @@ class StretchListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_stretch_list)
 
-        val stretchList = listOf("Cuadro 1", "Cuadro 2", "Cuadro 3", "Cuadro 4", "Cuadro 5")
+        val stretchList = listOf("Brazo Derecho", "Brazo Izquierdo", "Cuadro 3", "Cuadro 4", "Cuadro 5")
         val recyclerView = findViewById<RecyclerView>(R.id.recycler_stretches)
         recyclerView.layoutManager = GridLayoutManager(this, 2)
         recyclerView.adapter = StretchAdapter(stretchList, this)    }

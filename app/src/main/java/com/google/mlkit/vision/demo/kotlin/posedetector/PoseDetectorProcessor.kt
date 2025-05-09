@@ -31,6 +31,9 @@ import com.google.mlkit.vision.pose.PoseDetectorOptionsBase
 import java.util.ArrayList
 import java.util.concurrent.Executor
 import java.util.concurrent.Executors
+import android.widget.Toast
+
+
 
 /** A processor to run pose detector. */
 class PoseDetectorProcessor(
@@ -45,6 +48,7 @@ class PoseDetectorProcessor(
 
   private val detector: PoseDetector
   private val classificationExecutor: Executor
+  private var evaluationCallback: ((Pose) -> Unit)? = null
 
   private var poseClassifierProcessor: PoseClassifierProcessor? = null
 
@@ -59,6 +63,10 @@ class PoseDetectorProcessor(
   override fun stop() {
     super.stop()
     detector.close()
+  }
+
+  fun setPoseEvaluationCallback(callback: (Pose) -> Unit) {
+    this.evaluationCallback = callback
   }
 
   override fun detectInImage(image: InputImage): Task<PoseWithClassification> {
@@ -100,9 +108,12 @@ class PoseDetectorProcessor(
   }
 
   override fun onSuccess(
+
     poseWithClassification: PoseWithClassification,
     graphicOverlay: GraphicOverlay
   ) {
+    evaluationCallback?.invoke(poseWithClassification.pose)
+
     graphicOverlay.add(
       PoseGraphic(
         graphicOverlay,
@@ -110,7 +121,8 @@ class PoseDetectorProcessor(
         showInFrameLikelihood,
         visualizeZ,
         rescaleZForVisualization,
-        poseWithClassification.classificationResult
+        poseWithClassification.classificationResult,
+        (context as? com.google.mlkit.vision.demo.kotlin.LivePreviewActivity)?.poseMode
       )
     )
   }

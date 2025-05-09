@@ -35,7 +35,8 @@ internal constructor(
   private val showInFrameLikelihood: Boolean,
   private val visualizeZ: Boolean,
   private val rescaleZForVisualization: Boolean,
-  private val poseClassification: List<String>
+  private val poseClassification: List<String>,
+  private val poseMode: String?
 ) : Graphic(overlay) {
   private var zMin = java.lang.Float.MAX_VALUE
   private var zMax = java.lang.Float.MIN_VALUE
@@ -68,19 +69,14 @@ internal constructor(
       return
     }
 
-    // Draw pose classification text.
-    val classificationX = POSE_CLASSIFICATION_TEXT_SIZE * 0.5f
-    for (i in poseClassification.indices) {
-      val classificationY =
-        canvas.height -
-          (POSE_CLASSIFICATION_TEXT_SIZE * 1.5f * (poseClassification.size - i).toFloat())
-      canvas.drawText(
-        poseClassification[i],
-        classificationX,
-        classificationY,
-        classificationTextPaint
-      )
+    if (poseMode == "RIGHT_ARM_STRETCH") {
+      drawRightArm(canvas)
+      return
+    } else if (poseMode == "LEFT_ARM_STRETCH"){
+      drawLeftArm(canvas)
+      return
     }
+
 
     // Draw all the points
     for (landmark in landmarks) {
@@ -167,18 +163,60 @@ internal constructor(
     drawLine(canvas, rightAnkle, rightHeel, rightPaint)
     drawLine(canvas, rightHeel, rightFootIndex, rightPaint)
 
-    // Draw inFrameLikelihood for all points
-    if (showInFrameLikelihood) {
-      for (landmark in landmarks) {
-        canvas.drawText(
-          String.format(Locale.US, "%.2f", landmark.inFrameLikelihood),
-          translateX(landmark.position.x),
-          translateY(landmark.position.y),
-          whitePaint
-        )
-      }
-    }
   }
+
+  private fun drawRightArm(canvas: Canvas) {
+    val leftShoulder = pose.getPoseLandmark(PoseLandmark.LEFT_SHOULDER)
+    val rightShoulder = pose.getPoseLandmark(PoseLandmark.RIGHT_SHOULDER)
+    val leftElbow = pose.getPoseLandmark(PoseLandmark.LEFT_ELBOW)
+    val rightElbow = pose.getPoseLandmark(PoseLandmark.RIGHT_ELBOW)
+    val leftWrist = pose.getPoseLandmark(PoseLandmark.LEFT_WRIST)
+    val rightWrist = pose.getPoseLandmark(PoseLandmark.RIGHT_WRIST)
+
+    val leftPinky = pose.getPoseLandmark(PoseLandmark.LEFT_PINKY)
+    val rightPinky = pose.getPoseLandmark(PoseLandmark.RIGHT_PINKY)
+    val leftIndex = pose.getPoseLandmark(PoseLandmark.LEFT_INDEX)
+    val rightIndex = pose.getPoseLandmark(PoseLandmark.RIGHT_INDEX)
+    val leftThumb = pose.getPoseLandmark(PoseLandmark.LEFT_THUMB)
+    val rightThumb = pose.getPoseLandmark(PoseLandmark.RIGHT_THUMB)
+
+    drawLine(canvas, leftShoulder, rightShoulder, whitePaint)
+
+
+
+    drawLine(canvas, rightShoulder, rightElbow, rightPaint)
+    drawLine(canvas, rightElbow, rightWrist, rightPaint)
+    drawLine(canvas, rightWrist, rightThumb, rightPaint)
+    drawLine(canvas, rightWrist, rightPinky, rightPaint)
+    drawLine(canvas, rightWrist, rightIndex, rightPaint)
+    drawLine(canvas, rightIndex, rightPinky, rightPaint)
+
+  }
+
+  private fun drawLeftArm(canvas: Canvas) {
+    val leftShoulder = pose.getPoseLandmark(PoseLandmark.LEFT_SHOULDER)
+    val rightShoulder = pose.getPoseLandmark(PoseLandmark.RIGHT_SHOULDER)
+    val leftElbow = pose.getPoseLandmark(PoseLandmark.LEFT_ELBOW)
+    val leftWrist = pose.getPoseLandmark(PoseLandmark.LEFT_WRIST)
+
+    val leftPinky = pose.getPoseLandmark(PoseLandmark.LEFT_PINKY)
+    val leftIndex = pose.getPoseLandmark(PoseLandmark.LEFT_INDEX)
+    val leftThumb = pose.getPoseLandmark(PoseLandmark.LEFT_THUMB)
+
+    drawLine(canvas, leftShoulder, rightShoulder, whitePaint)
+
+    drawLine(canvas, leftShoulder, leftElbow, leftPaint)
+    drawLine(canvas, leftElbow, leftWrist, leftPaint)
+    drawLine(canvas, leftWrist, leftThumb, leftPaint)
+    drawLine(canvas, leftWrist, leftPinky, leftPaint)
+    drawLine(canvas, leftWrist, leftIndex, leftPaint)
+    drawLine(canvas, leftIndex, leftPinky, leftPaint)
+
+
+  }
+
+
+
 
   internal fun drawPoint(canvas: Canvas, landmark: PoseLandmark, paint: Paint) {
     val point = landmark.position3D

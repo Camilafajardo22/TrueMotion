@@ -87,7 +87,7 @@ public final class LivePreviewActivity extends AppCompatActivity
   private CameraSource cameraSource = null;
   private CameraSourcePreview preview;
   private GraphicOverlay graphicOverlay;
-  private String selectedModel = OBJECT_DETECTION;
+  private String selectedModel = POSE_DETECTION;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
