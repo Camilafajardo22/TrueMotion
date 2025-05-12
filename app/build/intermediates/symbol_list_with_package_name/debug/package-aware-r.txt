@@ -1188,7 +1188,7 @@ id startVertical
 id staticLayout
 id staticPostLayout
 id stop
-id stretch_name
+id stretch_image
 id submenuarrow
 id submit_area
 id tabMode

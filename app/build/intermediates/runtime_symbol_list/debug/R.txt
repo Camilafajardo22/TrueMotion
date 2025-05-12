@@ -1187,7 +1187,7 @@ int id startVertical 0x7f0900ff
 int id staticLayout 0x7f090100
 int id staticPostLayout 0x7f090101
 int id stop 0x7f090102
-int id stretch_name 0x7f090103
+int id stretch_image 0x7f090103
 int id submenuarrow 0x7f090104
 int id submit_area 0x7f090105
 int id tabMode 0x7f090106

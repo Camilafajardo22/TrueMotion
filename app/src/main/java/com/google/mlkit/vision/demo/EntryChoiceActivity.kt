@@ -36,13 +36,24 @@ class EntryChoiceActivity : AppCompatActivity(), ActivityCompat.OnRequestPermiss
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_home)
+
     val cuadroList = listOf("Cuadro 1", "Cuadro 2", "Cuadro 3", "Cuadro 4", "Cuadro 5")
     window.decorView.setBackgroundColor(Color.parseColor("#1B5979"))
+
     val btnStart = findViewById<Button>(R.id.btn_start)
     btnStart.setOnClickListener {
       val intent = Intent(this, StretchListActivity::class.java)
       startActivity(intent)
     }
+
+    // Aquí está la magia para el texto responsivo
+    val titleTextView = findViewById<TextView>(R.id.title_home)
+    val displayMetrics = resources.displayMetrics
+    val screenWidth = displayMetrics.widthPixels
+    val desiredTextSize = screenWidth * 0.14f  // por ejemplo, 10% del ancho
+    titleTextView.setTextSize(android.util.TypedValue.COMPLEX_UNIT_PX, desiredTextSize)
+
+
 
       /*
     findViewById<TextView>(R.id.java_entry_point).setOnClickListener {

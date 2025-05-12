@@ -6,16 +6,16 @@
     android:background="#1B5979"
     android:padding="16dp">
 
+
+
     <TextView
         android:id="@+id/title_home"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:paddingBottom="50sp"
-        android:fontFamily="sans-serif-medium"
         android:text="TrueMotion"
         android:textColor="@android:color/white"
-        android:textSize="64sp" />
+        android:paddingBottom="50sp"
+        />
 
     <Button
         android:id="@+id/btn_start"

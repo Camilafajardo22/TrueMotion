@@ -67,6 +67,11 @@ class LivePreviewActivity :
   private var preview: CameraSourcePreview? = null
   private var graphicOverlay: GraphicOverlay? = null
   private var selectedModel = POSE_DETECTION
+  private var alreadyWarnedRightArm = false
+  private var alreadyWarnedLeftArm = false
+  private var alreadyWarnedRightLeg = false
+  private var alreadyWarnedLeftLeg = false
+
   var poseMode: String? = null
 
   override fun onCreate(savedInstanceState: Bundle?) {
@@ -168,17 +173,27 @@ class LivePreviewActivity :
           if (poseMode == "RIGHT_ARM_STRETCH") {
             processor.setPoseEvaluationCallback { pose ->
               val armsOk = ArmStretchEvaluator.isRightArmStretched(pose)
-              if (!armsOk) {
-                Toast.makeText(this, "Estira más los brazos", Toast.LENGTH_SHORT).show()
+
+              if (!armsOk && !alreadyWarnedRightArm) {
+                Toast.makeText(this, "Estira más el brazo", Toast.LENGTH_SHORT).show()
+                alreadyWarnedRightArm = true
               }
+              if (armsOk) {
+                alreadyWarnedRightArm = false
+              }
+
             }
           }
 
           else if (poseMode == "LEFT_ARM_STRETCH") {
             processor.setPoseEvaluationCallback { pose ->
               val armsOk = ArmStretchEvaluator.isLeftArmStretched(pose)
-              if (!armsOk) {
-                Toast.makeText(this, "Estira más los brazos", Toast.LENGTH_SHORT).show()
+              if (!armsOk && !alreadyWarnedLeftArm) {
+                Toast.makeText(this, "Estira más el brazo", Toast.LENGTH_SHORT).show()
+                alreadyWarnedLeftArm = true
+              }
+              if (armsOk) {
+                alreadyWarnedLeftArm = false
               }
             }
           }
@@ -186,8 +201,12 @@ class LivePreviewActivity :
           else if (poseMode == "RIGHT_LEG_STRETCH") {
             processor.setPoseEvaluationCallback { pose ->
               val legsOk = LegStretchEvaluator.isRightLegStretched(pose)
-              if (!legsOk) {
-                Toast.makeText(this, "Estira más las piernas", Toast.LENGTH_SHORT).show()
+              if (!legsOk && !alreadyWarnedRightLeg) {
+                Toast.makeText(this, "Estira más la pierna", Toast.LENGTH_SHORT).show()
+                alreadyWarnedRightLeg = true
+              }
+              if (legsOk) {
+                alreadyWarnedRightLeg = false
               }
             }
           }
@@ -195,8 +214,12 @@ class LivePreviewActivity :
           else if (poseMode == "LEFT_LEG_STRETCH") {
             processor.setPoseEvaluationCallback { pose ->
               val legsOk = LegStretchEvaluator.isLeftLegStretched(pose)
-              if (!legsOk) {
-                Toast.makeText(this, "Estira más las piernas", Toast.LENGTH_SHORT).show()
+              if (!legsOk && !alreadyWarnedLeftLeg) {
+                Toast.makeText(this, "Estira más la pierna", Toast.LENGTH_SHORT).show()
+                alreadyWarnedLeftLeg = true
+              }
+              if (legsOk) {
+                alreadyWarnedLeftArm = false
               }
             }
           }
