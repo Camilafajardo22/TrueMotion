@@ -1,9 +1,9 @@
-#Thu May 08 18:32:06 COT 2025
-base.2=C\:\\Users\\camil\\AndroidStudioProjects\\TrueMotion\\app\\build\\intermediates\\dex\\debugAndroidTest\\mergeProjectDexDebugAndroidTest\\13\\classes.dex
+#Mon May 12 00:06:03 COT 2025
+base.2=C\:\\Users\\jaime\\Documents\\TrueMotion\\TrueMotion\\app\\build\\intermediates\\dex\\debugAndroidTest\\mergeProjectDexDebugAndroidTest\\13\\classes.dex
 path.2=13/classes.dex
-base.1=C\:\\Users\\camil\\AndroidStudioProjects\\TrueMotion\\app\\build\\intermediates\\dex\\debugAndroidTest\\mergeProjectDexDebugAndroidTest\\0\\classes.dex
+base.1=C\:\\Users\\jaime\\Documents\\TrueMotion\\TrueMotion\\app\\build\\intermediates\\dex\\debugAndroidTest\\mergeProjectDexDebugAndroidTest\\0\\classes.dex
 path.1=0/classes.dex
-base.0=C\:\\Users\\camil\\AndroidStudioProjects\\TrueMotion\\app\\build\\intermediates\\dex\\debugAndroidTest\\mergeExtDexDebugAndroidTest\\classes.dex
+base.0=C\:\\Users\\jaime\\Documents\\TrueMotion\\TrueMotion\\app\\build\\intermediates\\dex\\debugAndroidTest\\mergeExtDexDebugAndroidTest\\classes.dex
 renamed.2=classes3.dex
 renamed.1=classes2.dex
 renamed.0=classes.dex
