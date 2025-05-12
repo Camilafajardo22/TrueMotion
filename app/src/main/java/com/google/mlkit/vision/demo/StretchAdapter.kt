@@ -5,13 +5,13 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import android.widget.ImageView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.google.mlkit.vision.demo.kotlin.LivePreviewActivity
 
 class StretchAdapter(
-    private val items: List<String>,
+    private val items: List<Int>,
     private val context: Context
 ) : RecyclerView.Adapter<StretchAdapter.StretchViewHolder>() {
 
@@ -23,7 +23,7 @@ class StretchAdapter(
 
     override fun onBindViewHolder(holder: StretchViewHolder, position: Int) {
         val name = items[position]
-        holder.title.text = name
+        holder.image.setImageResource(items[position])
 
         holder.itemView.setOnClickListener {
             val intent = Intent(context, LivePreviewActivity::class.java)
@@ -45,7 +45,7 @@ class StretchAdapter(
     override fun getItemCount(): Int = items.size
 
     class StretchViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val title: TextView = view.findViewById(R.id.stretch_name)
+        val image: ImageView = view.findViewById(R.id.stretch_image)
         val card: CardView = view.findViewById(R.id.card_container)
     }
 }
