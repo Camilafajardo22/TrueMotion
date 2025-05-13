@@ -12,6 +12,8 @@ class StretchListActivity : AppCompatActivity() {
         val stretchList = listOf(
             R.drawable.logo_pmc,
             R.drawable.logo_pmc,
+            R.drawable.logo_pmc,
+            R.drawable.logo_pmc,
             R.drawable.logo_pmc
         )
 
