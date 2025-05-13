@@ -18,7 +18,7 @@ class LegStretchEvaluator {
             if (listOf(hip, knee, ankle).any { it == null }) return false
 
             val angle = calculateAngle(hip!!, knee!!, ankle!!)
-            return abs(angle - 180) < 20
+            return abs(angle - 180) < 60
         }
 
         fun isLeftLegStretched(pose: Pose): Boolean {
@@ -29,7 +29,7 @@ class LegStretchEvaluator {
             if (listOf(hip, knee, ankle).any { it == null }) return false
 
             val angle = calculateAngle(hip!!, knee!!, ankle!!)
-            return abs(angle - 180) < 20
+            return abs(angle - 180) < 60
         }
 
         fun isLegStretched(pose: Pose): Boolean {

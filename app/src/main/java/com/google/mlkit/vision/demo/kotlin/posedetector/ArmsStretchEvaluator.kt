@@ -2,8 +2,6 @@ package com.google.mlkit.vision.demo.kotlin.posedetector
 import com.google.mlkit.vision.pose.Pose
 import com.google.mlkit.vision.pose.PoseLandmark
 import kotlin.math.abs
-import kotlin.math.atan2
-import kotlin.math.PI
 
 class ArmStretchEvaluator {
     companion object {
@@ -16,7 +14,7 @@ class ArmStretchEvaluator {
             if (listOf(shoulder, elbow, wrist).any { it == null }) return false
 
             val angle = calculateAngle(shoulder!!, elbow!!, wrist!!)
-            return abs(angle - 180) < 20
+            return abs(angle - 180) < 100
         }
 
         fun isLeftArmStretched(pose: Pose): Boolean {
@@ -27,7 +25,7 @@ class ArmStretchEvaluator {
             if (listOf(shoulder, elbow, wrist).any { it == null }) return false
 
             val angle = calculateAngle(shoulder!!, elbow!!, wrist!!)
-            return abs(angle - 180) < 20
+            return abs(angle - 180) < 60
         }
 
         fun areBothArmsStretched(pose: Pose): Boolean {
