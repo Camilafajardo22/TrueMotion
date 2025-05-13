@@ -1,5 +1,6 @@
 package com.google.mlkit.vision.demo
 
+import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
@@ -22,27 +23,32 @@ class StretchAdapter(
     }
 
     override fun onBindViewHolder(holder: StretchViewHolder, position: Int) {
-        val name = items[position]
         holder.image.setImageResource(items[position])
 
         holder.itemView.setOnClickListener {
-            val intent = Intent(context, LivePreviewActivity::class.java)
-
-            // Dependiendo del ítem, mandamos un modo distinto
-            when (position) {
-                0 -> intent.putExtra("POSE_MODE", "RIGHT_ARM_STRETCH")
-                1 -> intent.putExtra("POSE_MODE", "LEFT_ARM_STRETCH")
-                2 -> intent.putExtra("POSE_MODE", "RIGHT_LEG_STRETCH")
-                3 -> intent.putExtra("POSE_MODE", "LEFT_LEG_STRETCH")
-                // ... puedes agregar más modos si necesitas
-                else -> intent.putExtra("POSE_MODE", "UNKNOWN")
-            }
-
-            context.startActivity(intent)
+            AlertDialog.Builder(holder.itemView.context)
+                .setMessage("Posicionate como lo muestar la figura")   // 👈 mensaje solicitado
+                .setPositiveButton("Aceptar") { dialog, _ ->
+                    dialog.dismiss()
+                    launchLivePreview(position)
+                }
+                .show()
         }
     }
 
     override fun getItemCount(): Int = items.size
+
+    private fun launchLivePreview(position: Int) {
+        val intent = Intent(context, LivePreviewActivity::class.java)
+        when (position) {
+            0 -> intent.putExtra("POSE_MODE", "RIGHT_ARM_STRETCH")
+            1 -> intent.putExtra("POSE_MODE", "LEFT_ARM_STRETCH")
+            2 -> intent.putExtra("POSE_MODE", "RIGHT_LEG_STRETCH")
+            3 -> intent.putExtra("POSE_MODE", "LEFT_LEG_STRETCH")
+            else -> intent.putExtra("POSE_MODE", "UNKNOWN")
+        }
+        context.startActivity(intent)
+    }
 
     class StretchViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val image: ImageView = view.findViewById(R.id.stretch_image)

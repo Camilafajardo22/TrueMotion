@@ -10,10 +10,10 @@ class StretchListActivity : AppCompatActivity() {
         setContentView(R.layout.activity_stretch_list)
 
         val stretchList = listOf(
-            R.drawable.logo_pmc,
-            R.drawable.logo_pmc,
-            R.drawable.logo_pmc,
-            R.drawable.logo_pmc,
+            R.drawable.brazo_derecho,
+            R.drawable.brazo_izquierdo,
+            R.drawable.pierna_derecha,
+            R.drawable.pierna_izquierda,
             R.drawable.logo_pmc
         )
 

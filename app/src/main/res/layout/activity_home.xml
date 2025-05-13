@@ -1,29 +1,67 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
     android:background="#1B5979"
-    android:padding="16dp">
+    android:padding="16dp"
+    tools:ignore="ExtraText">
 
+    <!-- Logo: 18 % del ancho de pantalla, cuadrado, anclado arriba-izquierda -->
+    <ImageView
+        android:id="@+id/logo_icon"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/logo_pmc"
+        android:contentDescription="img"
+        android:layout_margin="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.18"
+        app:layout_constraintDimensionRatio="1:1" />
 
-
-    <TextView
-        android:id="@+id/title_home"
-        android:layout_width="wrap_content"
+    <!-- Contenedor centrado: 75 % del ancho total -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/center_container"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="TrueMotion"
-        android:textColor="@android:color/white"
-        android:paddingBottom="50sp"
-        />
+        app:layout_constraintWidth_percent="0.90"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
 
-    <Button
-        android:id="@+id/btn_start"
-        android:layout_width="215dp"
-        android:layout_height="80dp"
+        <!-- Título -->
+        <TextView
+            android:id="@+id/title_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TrueMotion"
+            android:textColor="@android:color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:paddingBottom="24dp" />
 
-        android:layout_marginBottom="32dp"
-        android:text="Empezar"
-        android:textSize="30sp" />
+        <!-- Botón: 70 % del ancho del contenedor y ratio 5:1 -->
+        <Button
+            android:id="@+id/btn_start"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="EMPEZAR"
+            android:textSize="18sp"
+            android:textAllCaps="false"
+            android:backgroundTint="#C9EAFB"
+            android:textColor="#1B5979"
+            android:layout_marginTop="24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title_home"
+            app:layout_constraintWidth_percent="0.70"
+        app:layout_constraintDimensionRatio="3:1" /> <!-- alto = ancho ÷ 5 -->
 
-</LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
